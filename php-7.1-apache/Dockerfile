@@ -34,6 +34,7 @@ RUN docker-php-ext-install \
     pcntl \
     pdo \
     pdo_mysql \
+    pdo_pgsql \
     soap \
     zip \
     intl \
