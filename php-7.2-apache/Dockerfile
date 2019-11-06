@@ -1,6 +1,6 @@
 FROM php:7.2-apache
 
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 #PHP INSTALLATION
 RUN apt-get update && apt-get install -y \
@@ -34,7 +34,6 @@ RUN docker-php-ext-install \
     pcntl \
     pdo \
     pdo_mysql \
-    pdo_pgsql \
     soap \
     zip \
     intl \
