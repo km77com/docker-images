@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libldap2-dev \
     libpng-dev \
     libxml2-dev \
+    libzip-dev \
     tmux \
     vim \
     zip \
