@@ -23,7 +23,7 @@ RUN apt-get install -y libmagickwand-dev --no-install-recommends
 RUN pecl install imagick-beta
 RUN docker-php-ext-enable imagick
 
-RUN docker-php-ext-configure gd --with-jpeg=/usr/lib/ --with-gd --with-freetype=/usr/include/
+RUN docker-php-ext-configure gd --with-jpeg --with-freetype
 RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/
 RUN docker-php-ext-configure intl
 
