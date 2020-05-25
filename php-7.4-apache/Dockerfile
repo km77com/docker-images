@@ -54,7 +54,7 @@ RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
 RUN echo "memory_limit=-1" > /usr/local/etc/php/conf.d/memory-limit-php.ini
 
 # Node
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs
 
 # Install yarn
 RUN apt-get install -y apt-transport-https
