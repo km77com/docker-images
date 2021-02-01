@@ -13,4 +13,8 @@ RUN apt-get update && apt-get install -y yarn
 RUN npm install gulp-cli -g
 RUN npm install gulp -D
 
+# Install Symfony CLI
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
 WORKDIR /code
