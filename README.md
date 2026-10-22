@@ -1,13 +1,19 @@
 # Docker images
 Dockerfile configurations for images published at [https://hub.docker.com/u/km77/](https://hub.docker.com/u/km77/)
 
-To create a new image it is only needed to create a **new** git tag with a name structure that
-fit the regex configured in Docker Hub:
-[https://hub.docker.com/repository/docker/km77/docker-images/builds](https://hub.docker.com/repository/docker/km77/docker-images/builds)
+Every folder holds one image's `Dockerfile`; images are published to
+[km77/docker-images](https://hub.docker.com/r/km77/docker-images) by the Jenkins job `miscellanea/docker-images`.
 
-Example of tag regex: `/^webdevops-php-nginx-7\.4-v[0-9]*$/`
+To publish a new image version:
 
-![Docker Hub automated builds!](assets/images/docker-hub-automated-builds.png "Docker Hub automated builds")
-![Docker Hub automated builds edition!](assets/images/docker-hub-automated-builds-edition.png "Docker Hub automated builds edition")
+1. Create a **new** git tag named `<folder>-v<N>`, e.g. `php-7.4-apache-v13`, and push it:
+   ```bash
+   git tag php-7.4-apache-v13
+   git push origin php-7.4-apache-v13
+   ```
+2. In Jenkins, run `miscellanea/docker-images` with **Build with Parameters**, setting `TAG` to the tag you pushed.
 
-Then push the tags to git repository `git push --tags` and Docker Hub will create the image
+The job builds `<folder>/Dockerfile` at that tag and pushes it as `km77/docker-images:<tag>`
+(e.g. `km77/docker-images:php-7.4-apache-v13`).
+
+To add a new image, create a new folder with its `Dockerfile` and tag it as above.
