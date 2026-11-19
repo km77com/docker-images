@@ -1,5 +1,4 @@
-# Pinned by digest: PHP 8.4.27, with the fix for CVE-2026-109618 and CVE-2026-109619
-FROM php:8.4.27-apache@sha256:a0b75cee7023ba2c127138dcad2ecc6ec7e09435534645e70450f29f24ea2a5a
+FROM php:8.4.28-apache@sha256:decf0c9223a74166bc7f4e29a8c725f55d94e4837b5ead7b4cd178efda871943
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 

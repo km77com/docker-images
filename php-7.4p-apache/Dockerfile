@@ -2,6 +2,11 @@ FROM debian:trixie-slim
 
 ARG PHP=7.4
 
+ARG PHP_VERSION=1:7.4.33-37+debsuryorg13.1+php+1
+ARG APCU_VERSION=5.1.28-2+0~20260623.59+debian13~1.gbp4679cd
+ARG IMAGICK_VERSION=3.8.1-1+0~20260621.55+debian13~1.gbpde1d95
+ARG XDEBUG_VERSION=1:3.1.6-2+0~20260712.9+debian13~1.gbp7a343a
+
 # PHP from deb.sury.org, which keeps backporting security fixes to EOL PHP versions
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl && \
     curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb && \
@@ -11,24 +16,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 #PHP INSTALLATION
 RUN apt-get update && apt-get install -y \
     apache2 \
-    libapache2-mod-php$PHP \
-    php$PHP-apcu \
-    php$PHP-cli \
-    php$PHP-curl \
-    php$PHP-gd \
-    php$PHP-imagick \
-    php$PHP-intl \
-    php$PHP-json \
-    php$PHP-ldap \
-    php$PHP-mbstring \
-    php$PHP-mysql \
-    php$PHP-opcache \
-    php$PHP-readline \
-    php$PHP-soap \
-    php$PHP-sqlite3 \
-    php$PHP-xdebug \
-    php$PHP-xml \
-    php$PHP-zip \
+    libapache2-mod-php$PHP=$PHP_VERSION \
+    php$PHP-apcu=$APCU_VERSION \
+    php$PHP-cli=$PHP_VERSION \
+    php$PHP-common=$PHP_VERSION \
+    php$PHP-curl=$PHP_VERSION \
+    php$PHP-gd=$PHP_VERSION \
+    php$PHP-imagick=$IMAGICK_VERSION \
+    php$PHP-intl=$PHP_VERSION \
+    php$PHP-json=$PHP_VERSION \
+    php$PHP-ldap=$PHP_VERSION \
+    php$PHP-mbstring=$PHP_VERSION \
+    php$PHP-mysql=$PHP_VERSION \
+    php$PHP-opcache=$PHP_VERSION \
+    php$PHP-readline=$PHP_VERSION \
+    php$PHP-soap=$PHP_VERSION \
+    php$PHP-sqlite3=$PHP_VERSION \
+    php$PHP-xdebug=$XDEBUG_VERSION \
+    php$PHP-xml=$PHP_VERSION \
+    php$PHP-zip=$PHP_VERSION \
     git \
     gnupg \
     tmux \

@@ -1,5 +1,4 @@
-# Pinned by digest: PHP 8.4.27, with the fix for CVE-2026-109618 and CVE-2026-109619
-FROM webdevops/php-nginx:8.4@sha256:9d23e38bb909caf91653d3c77bf611fdf1fe9d4da2e19404acf624f9ae38b640
+FROM webdevops/php-nginx:8.4@sha256:99aa1f11de058c8217e7a84efb02de9923fb73a181a9f0221ec270a26d97810b
 
 # Node
 RUN curl -sSL https://nodejs.org/dist/v11.15.0/node-v11.15.0-linux-x64.tar.xz | \
